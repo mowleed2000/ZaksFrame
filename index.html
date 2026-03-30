@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakframes | Premium Portrait & Lifestyle Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #f0f0f0;
+            --accent: #d4af37;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-headline { font-family: 'Outfit', sans-serif; }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .masonry {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            background: #111;
+        }
+        .masonry-item:hover { transform: scale(1.02); }
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 1.2s ease, filter 0.8s ease;
+            filter: brightness(0.9);
+        }
+        .masonry-item:hover img { 
+            transform: scale(1.1); 
+            filter: brightness(1.1);
+        }
+
+        .line-reveal::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text);
+            transition: width 0.6s ease;
+        }
+        .line-reveal:hover::after { width: 100%; }
+
+        .hero-title {
+            line-height: 0.85;
+            letter-spacing: -0.06em;
+        }
+
+        .premium-border {
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .glass {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 p-8 flex justify-between items-center mix-blend-difference">
+        <a href="#" class="text-3xl font-headline font-black tracking-tighter">ZAKFRAMES</a>
+        <nav class="hidden md:flex gap-12 text-xs font-bold uppercase tracking-[0.3em]">
+            <a href="#services" class="line-reveal relative">Services</a>
+            <a href="#portfolio" class="line-reveal relative">Portfolio</a>
+            <a href="#contact" class="line-reveal relative text-neutral-400 hover:text-white">Contact</a>
+        </nav>
+        <a href="tel:+447703389494" class="bg-white text-black px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-widest hover:invert transition-all duration-500">
+            Book a project
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="relative h-screen min-h-[800px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/zak-hero.png" alt="Zak Portrait" class="w-full h-full object-cover object-[center_10%] scale-105 transition-all duration-[3s] hover:scale-110 brightness-90">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-8 w-full mt-20">
+                <div class="reveal active">
+                    <span class="text-[10px] font-black uppercase tracking-[0.6em] mb-8 block text-neutral-500">London · Premium Imagery</span>
+                    <h1 class="hero-title text-[clamp(5rem,15vw,15rem)] font-headline font-black mb-12">ZAK<br>FRAMES</h1>
+                    <p class="text-xl md:text-2xl font-light max-w-md leading-relaxed text-neutral-300 border-l border-white/20 pl-8">
+                        Crafting soulful, cinematic imagery for the world's most intentional individuals and brands.
+                    </p>
+                    
+                    <div class="mt-20 flex flex-wrap gap-8 items-center">
+                        <a href="tel:+447703389494" class="group flex items-center gap-6 text-sm font-black uppercase tracking-[0.3em] bg-white/5 hover:bg-white hover:text-black px-8 py-5 transition-all duration-500 rounded-lg backdrop-blur-md">
+                            Call now
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-12 right-12 flex items-center gap-6 opacity-30">
+                <span class="text-[9px] font-black uppercase tracking-[0.5em]">Scroll to explore</span>
+                <div class="w-20 h-px bg-white"></div>
+            </div>
+        </section>
+
+        <!-- Intro/Manifesto -->
+        <section class="py-60 bg-black flex justify-center text-center px-8 relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] font-headline font-black text-white/5 pointer-events-none select-none">VISION</div>
+            <div class="max-w-4xl reveal relative z-10">
+                <h2 class="text-4xl md:text-6xl font-headline font-medium leading-[1.1] tracking-tight">
+                    Every frame is a legacy. <br> Every shadow tells a story.
+                </h2>
+                <p class="mt-12 text-neutral-500 max-w-xl mx-auto leading-relaxed text-lg">Based in London, traveling globally. We don't just take photos; we document the evolution of your brand and lifestyle.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-40 bg-[#0a0a0a] premium-border border-x-0">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-32 reveal flex justify-between items-end gap-8 border-b border-white/5 pb-10">
+                    <div>
+                        <span class="text-xs font-black uppercase tracking-[0.5em] mb-4 block text-neutral-600">Our Expertise</span>
+                        <h2 class="text-7xl md:text-9xl font-headline font-black leading-none">CRAFT</h2>
+                    </div>
+                    <div class="text-right hidden md:block">
+                        <p class="text-neutral-500 uppercase text-[10px] tracking-widest font-black">Professional Output</p>
+                        <p class="text-white font-medium">Global Standard</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-1px bg-white/5 premium-border border-collapse">
+                    <!-- Commercial -->
+                    <div class="bg-black p-12 space-y-8 reveal transition-colors hover:bg-neutral-900 group">
+                        <span class="text-[10px] font-black text-neutral-700 tracking-widest">01</span>
+                        <h4 class="text-4xl font-headline font-black uppercase tracking-tighter group-hover:text-white transition-colors">Commercial & Editorial</h4>
+                        <p class="text-neutral-500 leading-relaxed text-sm">Visual narratives for brands, artists, and publications who require precision and elite aesthetic judgment.</p>
+                        <ul class="text-[9px] uppercase tracking-[0.3em] space-y-4 font-black text-neutral-600">
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> CAMPAIGNS</li>
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> LOOKBOOKS</li>
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> PRODUCT</li>
+                        </ul>
+                    </div>
+
+                    <!-- Weddings -->
+                    <div class="bg-black p-12 space-y-8 reveal transition-colors hover:bg-neutral-900 group border-x border-white/5">
+                        <span class="text-[10px] font-black text-neutral-700 tracking-widest">02</span>
+                        <h4 class="text-4xl font-headline font-black uppercase tracking-tighter group-hover:text-white transition-colors">Portraits & Lifestyle</h4>
+                        <p class="text-neutral-500 leading-relaxed text-sm">Capturing the internal character through external form. Intentional portraits for high-impact individuals.</p>
+                        <ul class="text-[9px] uppercase tracking-[0.3em] space-y-4 font-black text-neutral-600">
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> EXECUTIVE</li>
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> STREETWEAR</li>
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> CREATIVES</li>
+                        </ul>
+                    </div>
+
+                    <!-- Portraits -->
+                    <div class="bg-black p-12 space-y-8 reveal transition-colors hover:bg-neutral-900 group">
+                        <span class="text-[10px] font-black text-neutral-700 tracking-widest">03</span>
+                        <h4 class="text-4xl font-headline font-black uppercase tracking-tighter group-hover:text-white transition-colors">Events & Weddings</h4>
+                        <p class="text-neutral-500 leading-relaxed text-sm">Historical documentation of shared presence. Discrete, documentary-style photography for private events.</p>
+                        <ul class="text-[9px] uppercase tracking-[0.3em] space-y-4 font-black text-neutral-600">
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> CEREMONIES</li>
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> VIP ROOMS</li>
+                            <li class="flex items-center gap-3"> <span class="w-1.5 h-1.5 bg-neutral-800 group-hover:bg-white rounded-full"></span> CONCERTS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="px-6 py-40 bg-black">
+            <div class="max-w-[1700px] mx-auto">
+                <div class="mb-32 reveal flex items-center gap-20">
+                    <h2 class="text-5xl md:text-8xl font-headline font-black uppercase">Archive</h2>
+                    <div class="h-px flex-grow bg-white/10 hidden md:block"></div>
+                </div>
+                
+                <div class="masonry">
+                    <!-- NEW PHOTO 1 -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/zak-p1.png" alt="London Crew Photo">
+                    </div>
+                    <!-- NEW PHOTO 2 -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/zak-p2.png" alt="Premium Suit Portrait">
+                    </div>
+                    <!-- LANDSCAPE PHOTO 1 -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/IMG_1178.jpg" alt="Editorial Frame">
+                    </div>
+                    <!-- NEW PHOTO 3 -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/zak-p3.jpg" alt="Automotive Shoot">
+                    </div>
+                    <!-- NEW PHOTO 4 -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/zak-p4.png" alt="Neon Mask Portrait">
+                    </div>
+                    <!-- NEW PHOTO 5 -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/zak-p5.png" alt="Lifestyle Window Portrait">
+                    </div>
+                    <!-- OLD ASSETS -->
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/IMG_4416.jpg" alt="In-studio shot">
+                    </div>
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/_MG_2480.jpg" alt="Portrait">
+                    </div>
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/IMG_4224.jpg" alt="Car Detail">
+                    </div>
+                    <div class="masonry-item reveal">
+                        <img src="assets/portfolio/_MG_0720.jpg" alt="Urban shot">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inquiry & Booking Section -->
+        <section id="contact" class="py-60 bg-black relative">
+            <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-32 items-start relative z-10">
+                <div class="reveal sticky top-32">
+                    <span class="text-xs font-black uppercase tracking-[0.6em] mb-12 block text-neutral-600">The Collaboration</span>
+                    <h3 class="text-7xl md:text-8xl font-headline font-black leading-none mb-12 tracking-tighter">LET'S <br> BUILD.</h3>
+                    <p class="text-2xl text-neutral-400 font-light leading-relaxed mb-16">
+                        We are currently accepting a limited number of high-concept projects for 2026. Reach out to discuss your vision.
+                    </p>
+                    <div class="space-y-12">
+                        <div class="flex flex-col gap-2">
+                            <span class="text-[9px] font-black uppercase tracking-widest text-neutral-600">FOLLOW THE FRAME</span>
+                            <a href="https://instagram.com/zaksframe" class="text-2xl font-headline font-black hover:text-neutral-400 transition-all uppercase">@zaksframe</a>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <span class="text-[9px] font-black uppercase tracking-widest text-neutral-600">COMMUNICATION</span>
+                            <a href="tel:+447703389494" class="text-2xl font-headline font-black hover:text-neutral-400 transition-all uppercase">+44 7703 389494</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-900/30 p-12 lg:p-20 border border-white/5 rounded-3xl reveal backdrop-blur-3xl shadow-[0_0_100px_rgba(0,0,0,0.5)]">
+                    <form action="#" class="space-y-12">
+                        <div class="grid md:grid-cols-2 gap-12">
+                            <div class="space-y-3">
+                                <label class="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">Identity</label>
+                                <input type="text" required class="w-full bg-transparent border-b-2 border-white/5 py-4 focus:outline-none focus:border-white transition-all placeholder:text-neutral-800 text-white font-medium" placeholder="Your Name">
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">Contact</label>
+                                <input type="email" required class="w-full bg-transparent border-b-2 border-white/5 py-4 focus:outline-none focus:border-white transition-all placeholder:text-neutral-800 text-white font-medium" placeholder="Email@domain.com">
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">Project Nature</label>
+                            <select class="w-full bg-transparent border-b-2 border-white/5 py-4 focus:outline-none focus:border-white transition-all text-white appearance-none cursor-pointer uppercase font-bold text-xs tracking-widest">
+                                <option class="bg-[#0a0a0a]">Portrait & Lifestyle</option>
+                                <option class="bg-[#0a0a0a]">Commercial & Editorial</option>
+                                <option class="bg-[#0a0a0a]">Weddings & Ceremonies</option>
+                                <option class="bg-[#0a0a0a]">Custom Proposal</option>
+                            </select>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-[9px] font-black uppercase tracking-[0.4em] text-neutral-500">The Vision</label>
+                            <textarea rows="4" class="w-full bg-transparent border-b-2 border-white/5 py-4 focus:outline-none focus:border-white transition-all placeholder:text-neutral-800 text-white resize-none font-medium text-lg leading-relaxed" placeholder="Tell us more..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-black py-8 font-black uppercase tracking-[0.5em] text-[11px] hover:bg-neutral-200 transition-all shadow-2xl">
+                            INITIATE PROJECT
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-16 bg-black border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-4xl font-headline font-black tracking-tighter italic">ZAKFRAMES</div>
+            <div class="text-neutral-700 text-[10px] font-black uppercase tracking-[0.5em]">
+                © 2026 LONDON · ALL RIGHTS RESERVED
+            </div>
+            <div class="flex gap-8">
+                <a href="https://instagram.com/zaksframe" target="_blank" class="text-neutral-600 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="tel:+447703389494" class="text-neutral-600 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined text-2xl">phone_iphone</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
